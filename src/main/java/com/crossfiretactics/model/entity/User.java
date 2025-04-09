@@ -1,6 +1,5 @@
 package com.crossfiretactics.model.entity;
 
-import com.crossfiretactics.model.enums.UserRoleEnum;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -8,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class UserEntity extends BaseEntity {
+public class User extends BaseEntity {
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -27,9 +26,9 @@ public class UserEntity extends BaseEntity {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private List<UserRoleEntity> roles;
+    private List<UserRole> roles;
 
-    public UserEntity() {
+    public User() {
         this.roles = new ArrayList<>();
     }
 
@@ -73,11 +72,11 @@ public class UserEntity extends BaseEntity {
         this.lastName = lastName;
     }
 
-    public List<UserRoleEntity> getRoles() {
+    public List<UserRole> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<UserRoleEntity> roles) {
+    public void setRoles(List<UserRole> roles) {
         this.roles = roles;
     }
 }

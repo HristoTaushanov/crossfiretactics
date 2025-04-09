@@ -5,13 +5,13 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "roles")
-public class UserRoleEntity extends BaseEntity {
+public class UserRole extends BaseEntity {
 
     @Column(nullable = false, unique = true)
     @Enumerated(EnumType.STRING)
     private UserRoleEnum role;
 
-    public UserRoleEntity() {
+    public UserRole() {
     }
 
     public UserRoleEnum getRole() {
